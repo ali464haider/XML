@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libreria>
+  <libro>
+    <titulo lang="es">XQuery Kick Start</titulo>
+    <autor>James McGovern</autor>
+  </libro>
+  <libro>
+    <titulo lang="es">Aprender XML</titulo>
+    <autor>Erik T. Ray</autor>
+  </libro>
+</libreria> 
