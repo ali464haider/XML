@@ -1,0 +1,51 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<script>
+		
+		function creartabla(){
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    var archivo_xml=this.responseXML;
+    var lista_lon=archivo_xml.getElementsByTagName('Longitud');
+	var lista_lat=archivo_xml.getElementsByTagName('Latitud');
+	var lista_url=archivo_xml.getElementsByTagName('URL');
+	var tabla = document.createElement("table");
+	var objeto_div=document.getElementsByTagName('div')[0];
+    	for(i=0;i<lista_lon.length;i++){
+    		
+			var tabla_row = document.createElement("tr");
+			tabla.appendChild(tabla_row);
+			var tabla_dato1 = document.createElement("td");
+			tabla_row.appendChild(tabla_dato1);
+			var tabla_dato2 = document.createElement("td");
+			tabla_row.appendChild(tabla_dato2);
+			var tabla_dato3 = document.createElement("td");
+			tabla_row.appendChild(tabla_dato3);
+			var imagen = document.createElement("img");
+			imagen.src=lista_url[i].childNodes[0].nodeValue;
+			tabla_dato1.innerHTML=lista_lon[i].childNodes[0].nodeValue;
+			tabla_dato2.innerHTML=lista_lat[i].childNodes[0].nodeValue;
+			tabla_dato3.appendChild(imagen);	
+    	}
+		objeto_div.appendChild(tabla);
+    }
+
+
+  xhttp.open("GET", "camara.xml", true);
+  xhttp.send();
+}
+	</script>	
+	
+</head>
+<style>
+table, td{
+border: 1px solid black;
+}
+</style>
+<body  onload="creartabla();">
+<div id="demo">	
+	
+</div>	
+</body>
+</html>
